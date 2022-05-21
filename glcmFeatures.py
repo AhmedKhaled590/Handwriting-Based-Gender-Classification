@@ -6,15 +6,10 @@ from skimage.feature import graycomatrix, graycoprops
 from skimage.measure import shannon_entropy as Entropy
 from sklearn import svm
 from sklearn.svm import SVC
-from tuning import svmTuner
 import utils
 import os
-
 import pandas as pd
 import numpy as np
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.model_selection import train_test_split
-from sklearn.datasets import make_hastie_10_2
 
 
 def extractGLCM(filename, outputFileName):
