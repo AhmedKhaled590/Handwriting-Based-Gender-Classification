@@ -11,3 +11,6 @@
 del .*_1.jpg
 del .*_2.jpg
 ```
+
+(screenshots/1.PNG)
+
