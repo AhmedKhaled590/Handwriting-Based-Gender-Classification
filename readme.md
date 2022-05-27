@@ -16,6 +16,6 @@ del .*_2.jpg
 - create folders Female and put inside the cmp Females pics
 - create folders Males and put inside the cmp Males pics
 - create folders icdarTrainImages and put inside the icdar train pics
--- put the pic directly not inisde another folder
+- put the pic directly not inisde another folder
 -![](screenshots/1.PNG)
 
