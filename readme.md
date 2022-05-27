@@ -12,8 +12,6 @@ del .*_1.jpg
 del .*_2.jpg
 ```
 
-- \n\n\n
-
 - if you want to extract the cold and hinge features you need to:
 - create folders Female and put inside the cmp Females pics
 - create folders Males and put inside the cmp Males pics
