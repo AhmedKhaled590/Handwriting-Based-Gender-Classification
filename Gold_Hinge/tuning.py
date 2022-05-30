@@ -2,11 +2,14 @@ from sklearn.svm import SVC
 from sklearn import preprocessing
 from time import time
 from sklearn.model_selection import GridSearchCV, train_test_split, cross_val_predict, cross_val_score
+from joblib import dump, load
 import numpy as np
 
 
-def getBestParamsForSVM(X_train, Y_train):
+def getBestParamsForSVM(X_train, Y_train, scalerOutputFileName='scaler.joblib'):
     scaler = preprocessing.MinMaxScaler().fit(X_train)
+    print(scaler.data_max_)
+    dump(scaler, scalerOutputFileName)
 
     GridSearchCV_parameters = {
         'C': [0.01, 0.1, 1, 10, 100, 1000],

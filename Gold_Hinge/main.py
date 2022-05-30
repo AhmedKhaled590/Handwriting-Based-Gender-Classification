@@ -50,7 +50,7 @@ X_train, X_test, Y_train, Y_test = train_test_split(
     X_train, Y_train, test_size=0.1)
 
 print("Tunning parameters for SVM (Both)...")
-clf = getBestParamsForSVM(X_train, Y_train)
+clf = getBestParamsForSVM(X_train, Y_train, 'scaler_both.joblib')
 dump(clf, 'svm_both.joblib')
 
 
@@ -59,7 +59,8 @@ predictions_cold_hinge = trainAndPredict(X_train, Y_train, X_test, Y_test,
                                          clf)
 
 print("Tunning parameters for SVM (COLD)...")
-clf_cold = getBestParamsForSVM(X_train[:, np.arange(0, 421)], Y_train)
+clf_cold = getBestParamsForSVM(
+    X_train[:, np.arange(0, 421)], Y_train, 'scaler_cold.joblib')
 dump(clf_cold, 'svm_cold.joblib')
 
 print("Trainig&Predict SVM (COLD)...")
@@ -67,7 +68,8 @@ predictions_cold = trainAndPredict(X_train[:, np.arange(0, 421)], Y_train, X_tes
     0, 421)], Y_test, clf_cold)
 
 print("Tunning parameters for SVM (Hinge)...")
-clf_hinge = getBestParamsForSVM(X_train[:, np.arange(421, 1200)], Y_train)
+clf_hinge = getBestParamsForSVM(
+    X_train[:, np.arange(421, 1200)], Y_train, 'scaler_hinge.joblib')
 dump(clf_hinge, 'svm_hinge.joblib')
 
 print("Trainig&Predict SVM (Hinge)...")
