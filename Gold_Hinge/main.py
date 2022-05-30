@@ -11,7 +11,7 @@ from train_score import *
 
 
 # prepare features directories
-dir = os.getcwd()
+dir = os.getcwd()+'/Gold_Hinge'
 hingeDir = dir+"/FeaturesOutput/hinge_features.npy"
 coldDir = dir+"/FeaturesOutput/cold_features.npy"
 icdarCold = dir+"/FeaturesOutput/icdar_cold_features.npy"
