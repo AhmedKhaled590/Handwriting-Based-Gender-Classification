@@ -1,5 +1,10 @@
 # Guidelines To Run Project
 
+## Install dependencies
+```
+pip install -r requirements.txt
+```
+
 ### if you want to extract the cold and hinge features you need to:
 
 - create folders Female and put inside the cmp Females pics
@@ -20,10 +25,17 @@ python .\2.Cold_Hinge_Approach\main.py
 - First set ENV argument (TESTDIR) & (OUTDIR)
 
 ### if you use CMD
+for example:
 
 ```
-set TESTDIR=${Your dir}
-set OUTDIR=${Your dir}
+set TESTDIR=E:\CMP\NN\project\Project Submission\test
+set OUTDIR=E:\CMP\NN\project\Project Submission\out
+```
+### if you use Powershell
+
+```
+$env:TESTDIR='E:\CMP\NN\project\Project Submission\test'
+$env:OUTDIR='E:\CMP\NN\project\Project Submission\out'
 ```
 
 ### Then rum predict module
