@@ -14,7 +14,7 @@ def trainAndPredict(X_train, Y_train, X_test, Y_test,  clf):
     predictions_cold = clf.predict(
         scaler.transform(X_test))
 
-    print("Classification Report:\n")
+    print("Classification Report:")
 
     score_train_gold = clf.score(scaler.transform(
         X_train), Y_train)

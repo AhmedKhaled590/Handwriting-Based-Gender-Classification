@@ -1,15 +1,8 @@
 # Imports
 from cmath import e
-from time import time
 import numpy as np
-from skimage.measure import shannon_entropy as Entropy
-from sklearn import svm
-from sklearn.svm import SVC
-from sklearn.ensemble import RandomForestClassifier
-from sklearn import preprocessing
-from sklearn.metrics import accuracy_score
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.model_selection import GridSearchCV, train_test_split, cross_val_predict, cross_val_score
+from sklearn.model_selection import train_test_split
+from joblib import dump, load
 import pandas as pd
 import numpy as np
 import os
@@ -58,6 +51,7 @@ X_train, X_test, Y_train, Y_test = train_test_split(
 
 print("Tunning parameters for SVM (Both)...")
 clf = getBestParamsForSVM(X_train, Y_train)
+dump(clf, 'svm_both.joblib')
 
 
 print("Trainig&Predict SVM (Both)...")
@@ -66,6 +60,7 @@ predictions_cold_hinge = trainAndPredict(X_train, Y_train, X_test, Y_test,
 
 print("Tunning parameters for SVM (COLD)...")
 clf_cold = getBestParamsForSVM(X_train[:, np.arange(0, 421)], Y_train)
+dump(clf_cold, 'svm_cold.joblib')
 
 print("Trainig&Predict SVM (COLD)...")
 predictions_cold = trainAndPredict(X_train[:, np.arange(0, 421)], Y_train, X_test[:, np.arange(
@@ -73,6 +68,7 @@ predictions_cold = trainAndPredict(X_train[:, np.arange(0, 421)], Y_train, X_tes
 
 print("Tunning parameters for SVM (Hinge)...")
 clf_hinge = getBestParamsForSVM(X_train[:, np.arange(421, 1200)], Y_train)
+dump(clf_hinge, 'svm_hinge.joblib')
 
 print("Trainig&Predict SVM (Hinge)...")
 predictions_hinge = trainAndPredict(X_train[:, np.arange(421, 1200)], Y_train, X_test[:, np.arange(

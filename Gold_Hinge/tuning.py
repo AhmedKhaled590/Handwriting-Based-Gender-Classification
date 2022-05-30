@@ -23,4 +23,4 @@ def getBestParamsForSVM(X_train, Y_train):
     print("\nBest parameters: ", clf.best_params_)
     print("Mean Cross Validation Score: %0.2f" % clf.best_score_)
     print("Training time: %.3f" % (time() - t0))
-    return clf
+    return clf.best_estimator_
