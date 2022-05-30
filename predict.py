@@ -4,14 +4,16 @@ import argparse
 import os
 import time
 from joblib import dump, load
+import sys
 
 # if __name__ == '__name__':
 
 # def GetFeatures(input,output):
+print(sys.argv[1])
 
 # read test and out folders directories
-testDir=input('enter test directory: ')
-outDir=input('enter output directory: ')
+testDir=sys.argv[1]
+outDir=sys.argv[2]
 
 # prepare feature extraction parameters
 parser = argparse.ArgumentParser(description="")
