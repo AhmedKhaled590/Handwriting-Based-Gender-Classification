@@ -20,10 +20,17 @@ python .\2.Cold_Hinge_Approach\main.py
 - First set ENV argument (TESTDIR) & (OUTDIR)
 
 ### if you use CMD
+for example:
 
 ```
-set TESTDIR=${Your dir}
-set OUTDIR=${Your dir}
+set TESTDIR=E:\CMP\NN\project\Project Submission\test
+set OUTDIR=E:\CMP\NN\project\Project Submission\out
+```
+### if you use Powershell
+
+```
+$env:TESTDIR='E:\CMP\NN\project\Project Submission\test'
+$env:OUTDIR='E:\CMP\NN\project\Project Submission\out'
 ```
 
 ### Then rum predict module
