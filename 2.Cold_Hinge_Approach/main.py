@@ -11,7 +11,7 @@ from train_score import *
 
 
 # prepare features directories
-dir = os.getcwd()+'/Gold_Hinge'
+dir = os.getcwd()+'/2.Cold_Hinge_Approach'
 hingeDir = dir+"/FeaturesOutput/hinge_features.npy"
 coldDir = dir+"/FeaturesOutput/cold_features.npy"
 icdarCold = dir+"/FeaturesOutput/icdar_cold_features.npy"
@@ -36,7 +36,7 @@ X_cold = np.concatenate((X_cold, X_icdar_cold), axis=0)
 X_hinge = np.concatenate((X_hinge, X_icdar_hinge), axis=0)
 
 # prepare icdar labels
-icdar_classes = pd.read_csv('train_answers.csv')['male'].values
+icdar_classes = pd.read_csv(dir+'/train_answers.csv')['male'].values
 icdar_labels = []
 for i in range(len(Y_icadar_labels)):
     icdar_labels.append(icdar_classes[int(Y_icadar_labels[i])-1])

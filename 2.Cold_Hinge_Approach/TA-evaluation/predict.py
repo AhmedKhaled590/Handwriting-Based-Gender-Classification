@@ -10,8 +10,8 @@ from joblib import dump, load
 # def GetFeatures(input,output):
 
 # read test and out folders directories
-testDir=input('enter test directory: ')
-outDir=input('enter output directory: ')
+testDir = input('enter test directory: ')
+outDir = input('enter output directory: ')
 
 # prepare feature extraction parameters
 parser = argparse.ArgumentParser(description="")
@@ -39,10 +39,10 @@ imgs.sort()
 # print(os.path.join(outDir, "times.txt"))
 
 # open times and results files
-timeFile = open(os.path.join(outDir, "times.txt"),"w")
-resultFile = open(os.path.join(outDir, "results.txt"),"w")
+timeFile = open(os.path.join(outDir, "times.txt"), "w")
+resultFile = open(os.path.join(outDir, "results.txt"), "w")
 
-dir = os.getcwd()+'/Gold_Hinge/TA-evaluation/'
+dir = os.getcwd()+'/2.Cold_Hinge_Approach/TA-evaluation/'
 
 # load data scalers
 scalerHinge = load(dir+'scaler_hinge.joblib')
@@ -55,7 +55,6 @@ clfCold = load(dir+'svm_cold.joblib')
 clfBoth = load(dir+'svm_both.joblib')
 
 
-
 for i in range(len(imgs)):
     # try:
     img = imgs[i]
@@ -65,8 +64,8 @@ for i in range(len(imgs)):
     startTime = time.time()
 
     # get cold and hinge features
-    h_f = hinge.get_hinge_features(img_path).reshape(1,-1)
-    c_f = cold.get_cold_features(img_path).reshape(1,-1)
+    h_f = hinge.get_hinge_features(img_path).reshape(1, -1)
+    c_f = cold.get_cold_features(img_path).reshape(1, -1)
 
     # print(c_f.shape)
     # print(h_f.shape)
@@ -74,20 +73,22 @@ for i in range(len(imgs)):
 
     # get the voting of the classification
     clfCold.predict(scalerCold.transform(c_f))
-    pred = clfHinge.predict(scalerHinge.transform(h_f))  + clfBoth.predict(scalerBoth.transform(np.concatenate((c_f,h_f),axis=1)))
-    pred = 1 if pred>=2 else 0
+    pred = clfHinge.predict(scalerHinge.transform(
+        h_f)) + clfBoth.predict(scalerBoth.transform(np.concatenate((c_f, h_f), axis=1)))
+    pred = 1 if pred >= 2 else 0
 
     endTime = time.time() - startTime
 
     # print(max(.001,round(endTime,3)))
 
-
     # save the time
-    if(i):timeFile.write('\n')
-    timeFile.write(str(max(.001,round(endTime,3))))
+    if(i):
+        timeFile.write('\n')
+    timeFile.write(str(max(.001, round(endTime, 3))))
 
     # save the prediction
-    if(i):resultFile.write('\n')
+    if(i):
+        resultFile.write('\n')
     resultFile.write(str(pred))
 
     # hinge_feature_vectors.append(h_f)
