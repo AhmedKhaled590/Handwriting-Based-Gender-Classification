@@ -8,7 +8,6 @@ import numpy as np
 
 def getBestParamsForSVM(X_train, Y_train, scalerOutputFileName='scaler.joblib'):
     scaler = preprocessing.MinMaxScaler().fit(X_train)
-    print(scaler.data_max_)
     dump(scaler, scalerOutputFileName)
 
     GridSearchCV_parameters = {
