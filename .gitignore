@@ -4,6 +4,9 @@ Females/
 Males/
 images_gender/
 Unspecified/
+icdar_hog.csv
+female_hog.csv
+male_hog.csv
 
 2.Cold_Hinge_Approach/InputImages/Females/
 2.Cold_Hinge_Approach/InputImages/Males/
