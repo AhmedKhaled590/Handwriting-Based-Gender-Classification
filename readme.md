@@ -1,5 +1,10 @@
 # Guidelines To Run Project
 
+## Install dependencies
+```
+pip install -r requirements.txt
+```
+
 ### if you want to extract the cold and hinge features you need to:
 
 - create folders Female and put inside the cmp Females pics
