@@ -60,21 +60,21 @@ predictions_cold_hinge = trainAndPredict(X_train, Y_train, X_test, Y_test,
 
 print("Tunning parameters for SVM (COLD)...")
 clf_cold = getBestParamsForSVM(
-    X_train[:, np.arange(0, 421)], Y_train, 'scaler_cold.joblib')
+    X_train[:, np.arange(0, 420)], Y_train, 'scaler_cold.joblib')
 dump(clf_cold, 'svm_cold.joblib')
 
 print("Trainig&Predict SVM (COLD)...")
-predictions_cold = trainAndPredict(X_train[:, np.arange(0, 421)], Y_train, X_test[:, np.arange(
-    0, 421)], Y_test, clf_cold)
+predictions_cold = trainAndPredict(X_train[:, np.arange(0, 420)], Y_train, X_test[:, np.arange(
+    0, 420)], Y_test, clf_cold)
 
 print("Tunning parameters for SVM (Hinge)...")
 clf_hinge = getBestParamsForSVM(
-    X_train[:, np.arange(421, 1200)], Y_train, 'scaler_hinge.joblib')
+    X_train[:, np.arange(420, 1200)], Y_train, 'scaler_hinge.joblib')
 dump(clf_hinge, 'svm_hinge.joblib')
 
 print("Trainig&Predict SVM (Hinge)...")
-predictions_hinge = trainAndPredict(X_train[:, np.arange(421, 1200)], Y_train, X_test[:, np.arange(
-    421, 1200)], Y_test, clf_hinge)
+predictions_hinge = trainAndPredict(X_train[:, np.arange(420, 1200)], Y_train, X_test[:, np.arange(
+    420, 1200)], Y_test, clf_hinge)
 
 
 finalPredictions = votingClassifier(

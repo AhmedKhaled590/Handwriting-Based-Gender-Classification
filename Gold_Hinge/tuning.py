@@ -18,7 +18,7 @@ def getBestParamsForSVM(X_train, Y_train, scalerOutputFileName='scaler.joblib'):
 
     t0 = time()
     clf = GridSearchCV(SVC(class_weight='balanced'),
-                       GridSearchCV_parameters,  refit=True)
+                       GridSearchCV_parameters,  refit=True, cv=9)
 
     clf = clf.fit(scaler.transform(X_train), Y_train)
     print("Best estimator found by grid search:")
